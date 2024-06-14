@@ -1,3 +1,8 @@
 from fastapi import APIRouter
 
-router = APIRouter(tags=['Users'])
+from core.config import settings
+
+router = APIRouter(
+    tags=['Users'],
+    prefix=settings.api.v1.users,
+)
