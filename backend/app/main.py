@@ -3,6 +3,8 @@ import uvicorn
 from api import router as api_router
 from fastapi import FastAPI
 
+from core.config import settings
+
 app = FastAPI()
 app.include_router(
     api_router,
