@@ -8,5 +8,4 @@ router = APIRouter(
 )
 router.include_router(
     router_api_v1,
-    prefix=settings.api.v1.prefix,
 )
