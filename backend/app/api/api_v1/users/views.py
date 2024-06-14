@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from core.models import db_helper
-from .schemas import User
+from .schemas import User, UserCreate
 from . import crud
 
 from core.config import settings
@@ -11,6 +11,14 @@ router = APIRouter(
     tags=['Users'],
     prefix=settings.api.v1.users,
 )
+
+
+@router.post('/register/', response_model=User)
+async def create_user(
+    user_in: UserCreate,
+    session: AsyncSession = Depends(db_helper.session_getter),
+):
+    return await crud.create_user(session=session, user_in=user_in)
 
 
 @router.get('/{user_id}/', response_model=User)
