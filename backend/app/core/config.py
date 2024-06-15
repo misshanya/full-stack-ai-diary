@@ -40,6 +40,7 @@ class DatabaseConfig(BaseModel):
 class AuthJWT(BaseModel):
     private_key_path: str
     public_key_path: str
+    algorithm: str = 'RS256'
 
 
 class Settings(BaseSettings):
