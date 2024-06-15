@@ -37,6 +37,11 @@ class DatabaseConfig(BaseModel):
     }
 
 
+class AuthJWT(BaseModel):
+    private_key_path: str
+    public_key_path: str
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=(".env.template", ".env"),
@@ -47,6 +52,8 @@ class Settings(BaseSettings):
     run: RunConfig = RunConfig()
     api: ApiPrefix = ApiPrefix()
     db: DatabaseConfig
+    jwt: AuthJWT
 
 
 settings = Settings()
+print(settings.jwt.private_key_path, settings.jwt.public_key_path)
