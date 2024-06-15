@@ -58,4 +58,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-print(settings.jwt.private_key_path, settings.jwt.public_key_path)
