@@ -14,3 +14,16 @@ def encode_jwt(
         algorithm=algorithm,
     )
     return encoded
+
+
+def decode_jwt(
+        token: str | bytes,
+        public_key: str = settings.jwt.public_key_path.read_text(),
+        algorithm: str = settings.jwt.algorithm,
+):
+    decoded = jwt.decode(
+        jwt=token,
+        key=public_key,
+        algorithms=[algorithm],
+    )
+    return decoded
