@@ -1,3 +1,4 @@
+from pathlib import Path
 from pydantic import BaseModel
 from pydantic import PostgresDsn
 from pydantic_settings import (
@@ -38,8 +39,8 @@ class DatabaseConfig(BaseModel):
 
 
 class AuthJWT(BaseModel):
-    private_key_path: str
-    public_key_path: str
+    private_key_path: Path
+    public_key_path: Path
     algorithm: str = 'RS256'
 
 
