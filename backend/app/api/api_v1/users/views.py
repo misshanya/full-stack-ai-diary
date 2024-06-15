@@ -4,6 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from core.models import db_helper
 from .schemas import User, UserCreate
 from . import crud
+from .dependencies import get_user_by_id
 
 from core.config import settings
 
@@ -23,14 +24,7 @@ async def create_user(
 
 @router.get('/{user_id}/', response_model=User)
 async def get_user(
-    user_id: int,
-    session: AsyncSession = Depends(db_helper.session_getter),
+    user: User = Depends(get_user_by_id),
 ):
-    user = await crud.get_user(session=session, user_id=user_id)
-    if user is not None:
-        return user
-    
-    raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail=f'User {user_id} not found!',
-    )
+    return user
+
