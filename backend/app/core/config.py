@@ -15,6 +15,7 @@ class RunConfig(BaseModel):
 class ApiV1Prefix(BaseModel):
     prefix: str = '/v1'
     users: str = '/users'
+    auth: str = '/auth'
 
 
 class ApiPrefix(BaseModel):
@@ -42,6 +43,8 @@ class AuthJWT(BaseModel):
     private_key_path: Path
     public_key_path: Path
     algorithm: str = 'RS256'
+    access_token_expire_minutes: int = 15
+    refresh_token_expire_days: int = 30
 
 
 class Settings(BaseSettings):
