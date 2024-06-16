@@ -3,7 +3,7 @@ from pydantic import BaseModel, ConfigDict
 
 class UserBase(BaseModel):
     username: str
-    password: str
+    password: bytes
 
     first_name: str
     last_name: str
@@ -20,7 +20,7 @@ class UserUpdate(UserCreate):
 
 class UserUpdatePartial(UserCreate):
     username: str | None = None
-    password: str | None = None
+    password: bytes | None = None
 
     first_name: str | None = None
     last_name: str | None = None
