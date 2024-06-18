@@ -17,6 +17,7 @@ alembic = "^1.13.1"
 pyjwt = {extras = ["crypto"], version = "^2.8.0"}
 bcrypt = "^4.1.3"
 python-multipart = "^0.0.9"
+gigachain = "^0.2.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
