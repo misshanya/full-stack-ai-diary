@@ -23,6 +23,10 @@ class ApiPrefix(BaseModel):
     v1: ApiV1Prefix = ApiV1Prefix()
 
 
+class AiConfig(BaseModel):
+    token_sber: str
+
+
 class DatabaseConfig(BaseModel):
     url: PostgresDsn
     echo: bool = False
@@ -58,6 +62,7 @@ class Settings(BaseSettings):
     api: ApiPrefix = ApiPrefix()
     db: DatabaseConfig
     jwt: AuthJWT
+    ai: AiConfig
 
 
 settings = Settings()
