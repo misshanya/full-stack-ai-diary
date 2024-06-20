@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школьный дневник</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body id="body">
+    <header>
+        <h1>Школьный дневник</h1>
+        <div class="spin">
+            <button id="epilepsy-btn">
+                Игра с ИИ
+            </button>
+        </div>
+        <div class="user-info">
+            <span id="user-name"></span>
+            <span id="user-class"></span>
+            <button id="logout">Выйти</button>
+        </div>
+    </header>
+    
+    <main>
+        <div class="week-control">
+            <button id="prev-week">Предыдущая неделя</button>
+            <span id="week">Неделя 1</span>
+            <span id="month">Сентябрь</span>
+            <button id="next-week">Следующая неделя</button>
+        </div>
+        
+        <div class="schedule-container">
+            <div class="day" id="monday">
+                <h3>Понедельник</h3>
+            </div>
+            <div class="day" id="tuesday">
+                <h3>Вторник</h3>
+            </div>
+            <div class="day" id="wednesday">
+                <h3>Среда</h3>
+            </div>
+            <div class="day" id="thursday">
+                <h3>Четверг</h3>
+            </div>
+            <div class="day" id="friday">
+                <h3>Пятница</h3>
+            </div>
+        </div>
+
+        <table id="grades-table">
+            <thead>
+                <tr>
+                    <th>Предмет</th>
+                    <th>Триместр 1</th>
+                    <th>Триместр 2</th>
+                    <th>Триместр 3</th>
+                    <th>Средний балл</th>
+                </tr>
+            </thead>
+            <tbody id="grades-body"></tbody>
+        </table>
+    </main>
+
+    <!-- Chat Toggle and Popup Divs -->
+
+    <div class="chat-container">
+        <div class="chat-toggle">
+            <button id="expand-chat" style="display:none;">↑</button>
+            <button id="collapse-chat">↓</button>   
+        </div>
+
+        <div class="name">
+            Чат с ИИ
+        </div>
+
+        <div class="chat">
+            <div id="chat-messages"></div>
+            <input type="text" id="chat-input" placeholder="Введите сообщение...">
+            <button id="send-chat">Отправить</button>
+        </div>
+    </div>
+
+    <div id="topic-popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Тема урока</h2>
+            <p id="topic-details"></p>
+            <button id="ai-ask-button">Спросить ИИ</button>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
